@@ -1,0 +1,34 @@
+language: python
+
+python:
+  - "3.5"
+
+sudo: required
+
+dist: trusty
+
+install:
+  - make sys_requirements
+
+env:
+  global:
+  matrix:
+    - TEST_ENV=test
+    - TEST_ENV=check
+
+script:
+  - echo "TEST_ENV=$TEST_ENV"
+  - |
+    set -e
+    case "$TEST_ENV" in
+      test)
+        make test
+      check)
+        make pylama
+      *)
+        echo "Unknown TEST_ENV: $TEST_ENV."
+        exit 1;;
+    esac
+
+notifications:
+  email: false
