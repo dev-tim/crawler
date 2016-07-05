@@ -1,0 +1,7 @@
+-r base.in
+
+pdbpp
+pylama
+pip-tools
+pytest-testmon
+pytest-watch
