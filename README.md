@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/WorldBrain/crawler.svg?branch=master)](https://travis-ci.org/WorldBrain/crawler)
-
 [![Python version](https://img.shields.io/badge/python-3.5-brightgreen.svg)](https://travis-ci.org/WorldBrain/crawler)
 
 # crawler
