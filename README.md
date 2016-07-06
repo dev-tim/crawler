@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/WorldBrain/crawler.svg?branch=master)](https://travis-ci.org/WorldBrain/crawler)
+
+[![Python version](https://img.shields.io/badge/python-3.5-brightgreen.svg)](https://travis-ci.org/WorldBrain/crawler)
+
 # crawler
 A crawler which will retrieve web content which can later be used for data analysis.
 
@@ -22,7 +26,7 @@ $ python3.5 -m venv .venv
 $ . .venv/bin/activate
 ```
 
-Then get everything installed with [pip][pip]:
+Then get everything installed with [pip][pypip]:
 
 ```
 $ pip install -r requirements/dev.txt
@@ -67,7 +71,7 @@ Please check the [issues][issues] for something to do!
 
 [pytest]: http://pytest.org/latest/
 [venv]: https://docs.python.org/3/library/venv.html
-[pip]: https://pip.pypa.io/en/stable/
+[pypip]: https://pip.pypa.io/en/stable/
 [py35]: https://www.python.org/download/releases/3.3.5/
 [pip-tools]: https://github.com/nvie/pip-tools
 [flow]: https://guides.github.com/introduction/flow/
