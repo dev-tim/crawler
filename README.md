@@ -3,7 +3,9 @@
 
 # crawler
 A web crawler/parser with the purpose of indexing and parsing all articles for
-a given domain.
+a given domain. This project is a component of the [Worldbrain][wbrain] project.
+Please refer there to better understand the big picture of what we are trying
+to achieve.
 
 We are currently planning the execution of this crawler. To add your 2 cents, please go to issue [#1][issue1].
 
@@ -21,10 +23,6 @@ We are currently planning the execution of this crawler. To add your 2 cents, pl
     - title, text, keywords, NLP summary, official summary,
     - publish date, tags, urls, authors, domainname, parse_time
 
-# Outline
-This project is a component of the [Worldbrain][wbrain] project.
-
-Please refer there to better understand the big picture of what we are trying to achieve.
 
 # Install
 You'll need to get the system requirements installed first:
