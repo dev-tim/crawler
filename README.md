@@ -2,7 +2,24 @@
 [![Python version](https://img.shields.io/badge/python-3.5-brightgreen.svg)](https://travis-ci.org/WorldBrain/crawler)
 
 # crawler
-A crawler which will retrieve web content which can later be used for data analysis.
+A web crawler/parser with the purpose of indexing and parsing all articles for
+a given domain.
+
+We are currently planning the execution of this crawler. To add your 2 cents, please go to issue [#1][issue1].
+
+**Input:**
+  - List of domains trusted by the scientific community
+
+**Processing:**
+ 1. Produce a list of all URLs for a given domain
+ 2. Process that list to find all URLs that are likely to be articles
+ 3. Retrieve the HTML for each article
+ 4. Run parser logic over that HTML
+
+**Output:**
+  - JSON containing all the content elements of each article
+    - title, text, keywords, NLP summary, official summary,
+    - publish date, tags, urls, authors, domainname, parse_time
 
 # Outline
 This project is a component of the [Worldbrain][wbrain] project.
@@ -77,3 +94,4 @@ Please check the [issues][issues] for something to do!
 [travis]: https://guides.github.com/introduction/flow/
 [issues]: https://github.com/WorldBrain/crawler/issues
 [wbrain]: https://github.com/WorldBrain/Webmarks
+[issue1]: https://github.com/WorldBrain/crawler/issues/1
