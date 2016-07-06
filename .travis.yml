@@ -7,14 +7,15 @@ sudo: required
 
 dist: trusty
 
-install:
-  - make sys_requirements
-
 env:
-  global:
   matrix:
     - TEST_ENV=test
     - TEST_ENV=check
+
+install:
+  - "pip install --upgrade pip==8.1.1"  # pip-tools depends on this version
+  - make sys_requirements
+  - pip install -r requirements/travis.txt
 
 script:
   - echo "TEST_ENV=$TEST_ENV"
@@ -22,9 +23,9 @@ script:
     set -e
     case "$TEST_ENV" in
       test)
-        make test
+        make test ;;
       check)
-        make pylama
+        make pylama ;;
       *)
         echo "Unknown TEST_ENV: $TEST_ENV."
         exit 1;;
