@@ -24,7 +24,7 @@ $(PIP_REQUIREMENTS_DIR)/%.txt: $(PIP_REQUIREMENTS_DIR)/%.in
 
 .PHONY: requirements requirements_rebuild
 
-check_pylama:
+pylama:
 	pylama crawler
 
 PYTEST_ARGS?=
