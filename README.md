@@ -87,7 +87,7 @@ Please check the [issues][issues] for something to do!
 [venv]: https://docs.python.org/3/library/venv.html
 [pypip]: https://pip.pypa.io/en/stable/
 [py35]: https://www.python.org/download/releases/3.3.5/
-[pip-tools]: https://github.com/nvie/pip-tools
+[ptools]: https://github.com/nvie/pip-tools
 [flow]: https://guides.github.com/introduction/flow/
 [travis]: https://guides.github.com/introduction/flow/
 [issues]: https://github.com/WorldBrain/crawler/issues
