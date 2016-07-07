@@ -1,7 +1,8 @@
 -r base.in
 
-pdbpp
+ipdb
 pylama
 pip-tools
 pytest-testmon
 pytest-watch
+envdir
