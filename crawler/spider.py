@@ -2,24 +2,18 @@
     Our first `scrapy` spider is born.
 """
 
-from itertools import chain
-
-from scrapy.linkextractors import IGNORED_EXTENSIONS, LinkExtractor
+from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
 from items import PageItem
-from settings import ARTICLE_SPIDER_ALLOWED_DOMAINS, ARTICLE_SPIDER_START_URLS
-
-
-defaults = IGNORED_EXTENSIONS
-url_with_query_string = [r'.*\?.*']
-deny = list(chain(url_with_query_string, defaults))
-
-extractor = LinkExtractor(
-    deny=deny,
-    unique=True
+from settings import (
+    ARTICLE_SPIDER_ALLOWED_DOMAINS,
+    ARTICLE_SPIDER_START_URLS,
+    DENY_LIST
 )
 
+
+extractor = LinkExtractor(deny=DENY_LIST, unique=True)
 follower_rule = Rule(
     link_extractor=extractor,
     callback='retrieve_html',

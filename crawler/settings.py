@@ -1,6 +1,9 @@
 """Project wide settings for `ArticleSpider`"""
 
+from itertools import chain
+
 from fake_useragent import UserAgent
+from scrapy.linkextractors import IGNORED_EXTENSIONS
 
 # scrapy standard settings:
 # http://doc.scrapy.org/en/1.1/topics/settings.html#user-agent
@@ -22,6 +25,11 @@ ITEM_PIPELINES = {
 ARTICLE_SPIDER_ALLOWED_DOMAINS = [
     "drstevesavage.com",
 ]
+
 ARTICLE_SPIDER_START_URLS = [
     "http://drstevesavage.com",
 ]
+
+defaults = IGNORED_EXTENSIONS
+url_with_query_string = [r'.*\?.*']
+DENY_LIST = list(chain(url_with_query_string, defaults))
