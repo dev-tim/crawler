@@ -1,17 +1,19 @@
 """
     Our first `scrapy` spider is born.
 """
+import logging
 
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
-from items import PageItem
-from settings import (
+from crawler.items import PageItem
+from crawler.settings import (
     ARTICLE_SPIDER_ALLOWED_DOMAINS,
     ARTICLE_SPIDER_START_URLS,
     DENY_LIST
 )
 
+logger = logging.getLogger()
 
 extractor = LinkExtractor(deny=DENY_LIST, unique=True)
 follower_rule = Rule(
@@ -21,7 +23,7 @@ follower_rule = Rule(
 )
 
 
-class AricleSpider(CrawlSpider):
+class ArticleSpider(CrawlSpider):
     """
     `ArticleSpider` is a very simple scrapy spider who crawls a single
     domain as defined in `ARTICLE_SPIDER_ALLOWED_DOMAINS` and creates
@@ -35,5 +37,5 @@ class AricleSpider(CrawlSpider):
 
     def retrieve_html(self, response):
         """For each `response` fed in, return a `PageItem`."""
-        self.logger.info("Processing following URL: {}".format(response.url))
+        logger.info("Processing following URL: {}".format(response.url))
         return PageItem(url=response.url)
