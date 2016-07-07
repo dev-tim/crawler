@@ -1,8 +1,8 @@
-
 attrs==16.0.0             # via service-identity
 cffi==1.7.0               # via cryptography
 cryptography==1.4         # via pyopenssl
 cssselect==0.9.2          # via parsel, scrapy
+fake-useragent==0.0.8
 idna==2.1                 # via cryptography
 lxml==3.6.0               # via parsel, scrapy
 parsel==1.0.2             # via scrapy
@@ -15,7 +15,7 @@ queuelib==1.4.2           # via scrapy
 scrapy==1.1.0
 service-identity==16.0.0  # via scrapy
 six==1.10.0               # via cryptography, parsel, pyopenssl, scrapy, w3lib
-Twisted==16.2.0           # via scrapy
+Twisted==16.3.0           # via scrapy
 w3lib==1.14.2             # via parsel, scrapy
 zope.interface==4.2.0     # via twisted
 

@@ -1,4 +1,6 @@
 PROJECT_ROOT:=.
+CRAWLER_ROOT:=crawler
+TEST_ROOT:=test
 
 PIP_REQUIREMENTS_DIR=$(PROJECT_ROOT)/requirements
 PIP_REQUIREMENTS_BASE:=$(PIP_REQUIREMENTS_DIR)/base.txt
@@ -24,13 +26,22 @@ $(PIP_REQUIREMENTS_DIR)/%.txt: $(PIP_REQUIREMENTS_DIR)/%.in
 
 .PHONY: requirements requirements_rebuild
 
-pylama:
-	pylama crawler
+check:
+	pylama $(CRAWLER_ROOT)
 
 PYTEST_ARGS?=
 PYTEST=py.test $(PYTEST_ARGS)
 test:
-	$(PYTEST) crawler
+	$(PYTEST) $(TEST_ROOT)
 
-sys_requirements:
+.PHONY: test
+
+system_requirements:
 	for pk in $$(cat system-requirements.txt); do sudo apt-get install -yq "$$pk"; done
+
+ENVDIR=envdir envdir
+spider:
+	$(ENVDIR) scrapy runspider $(CRAWLER_ROOT)/spider.py $(SPIDER_ARGS)
+
+spider_to_json: SPIDER_ARGS:=-o items.json
+spider_to_json: spider

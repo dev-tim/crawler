@@ -28,7 +28,7 @@ We are currently planning the execution of this crawler. To add your 2 cents, pl
 You'll need to get the system requirements installed first:
 
 ```
-$ make sys_requirements
+$ make system_requirements
 ```
 
 Then, get the python requirements installed. This project is using [Python3.5][py35].
@@ -46,11 +46,14 @@ Then get everything installed with [pip][pypip]:
 $ pip install -r requirements/dev.txt
 ```
 
+# Running spiders
+Refer to the `crawler/` folder for more in depth details.
+
 # Testing
 We use [py.test][pytest] for our testing.
 
 ```
-$ py.test crawler
+$ make test
 $ ptw crawler -- --testmon
 ```
 

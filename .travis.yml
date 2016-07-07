@@ -13,9 +13,13 @@ env:
     - TEST_ENV=check
 
 install:
-  - "pip install --upgrade pip==8.1.1"  # pip-tools depends on this version
-  - make sys_requirements
+  # pip-tools depends on this version
+  - "pip install --upgrade pip==8.1.1"
+
+  - make system_requirements
   - pip install -r requirements/travis.txt
+
+before_script: export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 script:
   - echo "TEST_ENV=$TEST_ENV"
@@ -25,7 +29,7 @@ script:
       test)
         make test ;;
       check)
-        make pylama ;;
+        make check ;;
       *)
         echo "Unknown TEST_ENV: $TEST_ENV."
         exit 1;;
