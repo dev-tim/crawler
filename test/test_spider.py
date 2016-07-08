@@ -10,6 +10,21 @@ def test_deny_list(sample_urls, url):
     assert url == next(filtered)
 
 
+def test_expected_logging(caplog, response, url):
+    """`ArticleSpider` and `ParseRawHtml` correctly log messages"""
+    from crawler.items import PageItem
+    from crawler.pipelines import ParseRawHtml
+    from crawler.spider import ArticleSpider
+
+    ArticleSpider.retrieve_html(ArticleSpider, response=response)
+    ParseRawHtml.process_item(ParseRawHtml, PageItem(url='foo'), ArticleSpider)
+
+    logs = [record.message for record in caplog.records()]
+
+    assert "Processing following URL: {}".format(url) in logs
+    assert "Parsing item: {'url': 'foo'}" in logs
+
+
 def test_article_spider_produces_correct_urls(response, url):
     """ArticleSpider creates a `PageItem` for a given URL"""
     from crawler.spider import ArticleSpider
