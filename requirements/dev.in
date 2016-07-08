@@ -6,3 +6,4 @@ pip-tools
 pytest-testmon
 pytest-watch
 envdir
+pytest-capturelog
